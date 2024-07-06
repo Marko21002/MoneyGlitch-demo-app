@@ -14,6 +14,8 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { SVGProps } from "react";
+import { JSX } from "react/jsx-runtime";
 
 export const Route = createFileRoute("/_consumer/about")({
   component: () => (
@@ -112,7 +114,9 @@ function About() {
   );
 }
 
-function InstagramIcon(props) {
+function InstagramIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -133,7 +137,7 @@ function InstagramIcon(props) {
   );
 }
 
-function MailIcon(props) {
+function MailIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -153,7 +157,7 @@ function MailIcon(props) {
   );
 }
 
-function TextIcon(props) {
+function TextIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

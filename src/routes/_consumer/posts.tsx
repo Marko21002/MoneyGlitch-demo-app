@@ -9,6 +9,8 @@ import {
 import { Link } from "@tanstack/react-router";
 import { ResponsiveLine } from "@nivo/line";
 import { Button } from "@/components/ui/button";
+import { ClassAttributes, HTMLAttributes, SVGProps } from "react";
+import { JSX } from "react/jsx-runtime";
 
 export const Route = createFileRoute("/_consumer/posts")({
   component: () => (
@@ -24,9 +26,9 @@ function Posts() {
     <div className="flex min-h-screen justify-center bg-background">
       <div className="grid w-full max-w-screen-lg grid-cols-1 gap-6 p-4">
         <Card className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]">
-          <Link to="#" className="absolute inset-0 z-10">
+          {/* <Link to="#" className="absolute inset-0 z-10">
             <span className="sr-only">View Signal</span>
-          </Link>
+          </Link> */}
           <CardContent className="space-y-4 p-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -68,9 +70,9 @@ function Posts() {
         </Card>
 
         <Card className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]">
-          <Link to="#" className="absolute inset-0 z-10">
+          {/* <Link to="#" className="absolute inset-0 z-10">
             <span className="sr-only">View Signal</span>
-          </Link>
+          </Link> */}
           <CardContent className="space-y-4 p-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -112,7 +114,7 @@ function Posts() {
         </Card>
 
         <Card className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]">
-          <Link to="#" className="absolute inset-0 z-10">
+          <Link to="/" className="absolute inset-0 z-10">
             <span className="sr-only">View Signal</span>
           </Link>
           <CardContent className="space-y-4 p-6">
@@ -156,7 +158,7 @@ function Posts() {
         </Card>
 
         <Card className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]">
-          <Link to="#" className="absolute inset-0 z-10">
+          <Link to="/" className="absolute inset-0 z-10">
             <span className="sr-only">View Signal</span>
           </Link>
           <CardContent className="space-y-4 p-6">
@@ -224,7 +226,7 @@ function Blured() {
                 <div className="text-sm text-muted-foreground">per month</div>
               </div>
               <Link
-                to="https://buy.stripe.com/test_3cs2ah7W29VO25ieUV"
+                href="https://buy.stripe.com/test_3cs2ah7W29VO25ieUV"
                 target="_blank"
               >
                 <Button size="lg" className="w-full max-w-[150px]">
@@ -253,7 +255,7 @@ function Blured() {
   );
 }
 
-function CheckIcon(props) {
+function CheckIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -272,7 +274,7 @@ function CheckIcon(props) {
   );
 }
 
-function ArrowUpIcon(props) {
+function ArrowUpIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -292,7 +294,7 @@ function ArrowUpIcon(props) {
   );
 }
 
-function CoinsIcon(props) {
+function CoinsIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -314,7 +316,11 @@ function CoinsIcon(props) {
   );
 }
 
-function LineChart(props) {
+function LineChart(
+  props: JSX.IntrinsicAttributes &
+    ClassAttributes<HTMLDivElement> &
+    HTMLAttributes<HTMLDivElement>
+) {
   return (
     <div {...props}>
       <ResponsiveLine
@@ -387,7 +393,11 @@ function LineChart(props) {
   );
 }
 
-function TimeseriesChart(props) {
+function TimeseriesChart(
+  props: JSX.IntrinsicAttributes &
+    ClassAttributes<HTMLDivElement> &
+    HTMLAttributes<HTMLDivElement>
+) {
   return (
     <div {...props}>
       <ResponsiveLine

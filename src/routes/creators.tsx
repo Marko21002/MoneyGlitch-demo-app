@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Link } from "@tanstack/react-router";
+import { SVGProps } from "react";
+import { JSX } from "react/jsx-runtime";
 
 export const Route = createFileRoute("/creators")({
   component: () => (
@@ -151,7 +153,7 @@ function Listing() {
   );
 }
 
-function SearchIcon(props) {
+function SearchIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

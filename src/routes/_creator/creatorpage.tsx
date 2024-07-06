@@ -16,7 +16,6 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-  DialogClose,
 } from "@/components/ui/dialog";
 import {
   DropdownMenu,
@@ -39,6 +38,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { SVGProps } from "react";
+import { JSX } from "react/jsx-runtime";
 
 export const Route = createFileRoute("/_creator/creatorpage")({
   component: () => (
@@ -357,7 +358,9 @@ function Dashboard() {
   );
 }
 
-function DollarSignIcon(props) {
+function DollarSignIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -377,7 +380,7 @@ function DollarSignIcon(props) {
   );
 }
 
-function FilePenIcon(props) {
+function FilePenIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -398,7 +401,9 @@ function FilePenIcon(props) {
   );
 }
 
-function LayoutGridIcon(props) {
+function LayoutGridIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -420,7 +425,7 @@ function LayoutGridIcon(props) {
   );
 }
 
-function MailIcon(props) {
+function MailIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -440,7 +445,7 @@ function MailIcon(props) {
   );
 }
 
-function MenuIcon(props) {
+function MenuIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -461,7 +466,9 @@ function MenuIcon(props) {
   );
 }
 
-function SettingsIcon(props) {
+function SettingsIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -481,7 +488,7 @@ function SettingsIcon(props) {
   );
 }
 
-function UserIcon(props) {
+function UserIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -501,7 +508,7 @@ function UserIcon(props) {
   );
 }
 
-function UsersIcon(props) {
+function UsersIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

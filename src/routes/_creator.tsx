@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
 
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { SVGProps } from "react";
+import { JSX } from "react/jsx-runtime";
 export const Route = createFileRoute("/_creator")({
   component: () => (
     <div>
@@ -79,7 +81,7 @@ function Navbar() {
   );
 }
 
-function MenuIcon(props) {
+function MenuIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -100,7 +102,9 @@ function MenuIcon(props) {
   );
 }
 
-function MountainIcon(props) {
+function MountainIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
