@@ -1,14 +1,21 @@
 // import { Button } from "@/components/ui/button";
 
 // import { api } from "@/convex/_generated/api";
-// import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 // import { useMutation, useQuery } from "convex/react";
 // import { useState } from "react";
 
-// export const Route = createFileRoute("/_auth/dashboard2")({
-//   component: Dashboard,
-// });
+export const Route = createFileRoute("/_auth/dashboard2")({
+  component: () => {
+    <div>
+      <Dash></Dash>
+    </div>;
+  },
+});
 
+function Dash() {
+  return <div>Hello</div>;
+}
 // function Dashboard() {
 //   const addPost = useMutation(api.posts.add);
 //   const [post, setPost] = useState<typeof api.posts.add._args>({
