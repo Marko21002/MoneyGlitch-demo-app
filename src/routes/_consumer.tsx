@@ -22,7 +22,7 @@ function Navbar() {
           </Button>
         </SheetTrigger>
         <SheetContent side="left">
-          <Link to="/" className="flex items-center gap-2" prefetch={false}>
+          <Link to="/" className="flex items-center gap-2">
             <MountainIcon className="h-6 w-6" />
             <span className="font-medium">MoneyGlitch</span>
           </Link>
@@ -30,21 +30,18 @@ function Navbar() {
             <Link
               to="/about"
               className="flex w-full items-center py-2 text-lg font-semibold"
-              prefetch={false}
             >
               Home
             </Link>
             <Link
               to="/posts"
               className="flex w-full items-center py-2 text-lg font-semibold"
-              prefetch={false}
             >
               Posts
             </Link>
             <Link
               to="/settings"
               className="flex w-full items-center py-2 text-lg font-semibold"
-              prefetch={false}
             >
               Settings
             </Link>
@@ -52,7 +49,7 @@ function Navbar() {
         </SheetContent>
       </Sheet>
       <div className="hidden w-[150px] lg:flex">
-        <Link to="/" className="flex items-center gap-2" prefetch={false}>
+        <Link to="/" className="flex items-center gap-2">
           <MountainIcon className="h-6 w-6" />
           <span className="font-medium">MoneyGlitch</span>
         </Link>
@@ -61,21 +58,18 @@ function Navbar() {
         <Link
           to="/about"
           className="inline-flex h-9 items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-          prefetch={false}
         >
           Home
         </Link>
         <Link
           to="/posts"
           className="inline-flex h-9 items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-          prefetch={false}
         >
           Posts
         </Link>
         <Link
           to="/settings"
           className="inline-flex h-9 items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-          prefetch={false}
         >
           Settings
         </Link>

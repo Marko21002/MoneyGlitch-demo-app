@@ -24,7 +24,7 @@ function Posts() {
     <div className="flex min-h-screen justify-center bg-background">
       <div className="grid w-full max-w-screen-lg grid-cols-1 gap-6 p-4">
         <Card className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]">
-          <Link to="#" className="absolute inset-0 z-10" prefetch={false}>
+          <Link to="#" className="absolute inset-0 z-10">
             <span className="sr-only">View Signal</span>
           </Link>
           <CardContent className="space-y-4 p-6">
@@ -68,7 +68,7 @@ function Posts() {
         </Card>
 
         <Card className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]">
-          <Link to="#" className="absolute inset-0 z-10" prefetch={false}>
+          <Link to="#" className="absolute inset-0 z-10">
             <span className="sr-only">View Signal</span>
           </Link>
           <CardContent className="space-y-4 p-6">
@@ -112,7 +112,7 @@ function Posts() {
         </Card>
 
         <Card className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]">
-          <Link to="#" className="absolute inset-0 z-10" prefetch={false}>
+          <Link to="#" className="absolute inset-0 z-10">
             <span className="sr-only">View Signal</span>
           </Link>
           <CardContent className="space-y-4 p-6">
@@ -156,7 +156,7 @@ function Posts() {
         </Card>
 
         <Card className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]">
-          <Link to="#" className="absolute inset-0 z-10" prefetch={false}>
+          <Link to="#" className="absolute inset-0 z-10">
             <span className="sr-only">View Signal</span>
           </Link>
           <CardContent className="space-y-4 p-6">

@@ -65,7 +65,6 @@ function Dashboard() {
                 <Link
                   href="#"
                   className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
-                  prefetch={false}
                 >
                   <LayoutGridIcon className="h-5 w-5 transition-all group-hover:scale-110" />
                   <span className="sr-only">Acme Inc</span>
@@ -73,7 +72,6 @@ function Dashboard() {
                 <Link
                   href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                  prefetch={false}
                 >
                   <FilePenIcon className="h-5 w-5" />
                   Create Post
@@ -81,7 +79,6 @@ function Dashboard() {
                 <Link
                   href="#"
                   className="flex items-center gap-4 px-2.5 text-foreground"
-                  prefetch={false}
                 >
                   <UsersIcon className="h-5 w-5" />
                   Followers
@@ -89,7 +86,6 @@ function Dashboard() {
                 <Link
                   href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                  prefetch={false}
                 >
                   <DollarSignIcon className="h-5 w-5" />
                   Subscription
@@ -97,7 +93,6 @@ function Dashboard() {
                 <Link
                   href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                  prefetch={false}
                 >
                   <MailIcon className="h-5 w-5" />
                   Messages
@@ -105,7 +100,6 @@ function Dashboard() {
                 <Link
                   href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                  prefetch={false}
                 >
                   <UserIcon className="h-5 w-5" />
                   Profile
@@ -113,7 +107,6 @@ function Dashboard() {
                 <Link
                   href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                  prefetch={false}
                 >
                   <SettingsIcon className="h-5 w-5" />
                   Settings
@@ -125,9 +118,7 @@ function Dashboard() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="#" prefetch={false}>
-                    Dashboard
-                  </Link>
+                  <Link href="/">Back to Homepage</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
             </BreadcrumbList>

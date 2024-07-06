@@ -43,27 +43,15 @@ function About() {
           achieve their financial goals.
         </p>
         <div className="mt-6 flex justify-center space-x-4">
-          <Link
-            href="#"
-            className="text-muted-foreground hover:text-primary"
-            prefetch={false}
-          >
+          <Link href="#" className="text-muted-foreground hover:text-primary">
             <InstagramIcon className="h-6 w-6" />
             <span className="sr-only">Instagram</span>
           </Link>
-          <Link
-            href="#"
-            className="text-muted-foreground hover:text-primary"
-            prefetch={false}
-          >
+          <Link href="#" className="text-muted-foreground hover:text-primary">
             <MailIcon className="h-6 w-6" />
             <span className="sr-only">Gmail</span>
           </Link>
-          <Link
-            href="#"
-            className="text-muted-foreground hover:text-primary"
-            prefetch={false}
-          >
+          <Link href="#" className="text-muted-foreground hover:text-primary">
             <TextIcon className="h-6 w-6" />
             <span className="sr-only">Telegram</span>
           </Link>
