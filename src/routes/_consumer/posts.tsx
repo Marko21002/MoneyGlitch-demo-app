@@ -11,194 +11,80 @@ import { ResponsiveLine } from "@nivo/line";
 import { Button } from "@/components/ui/button";
 import { ClassAttributes, HTMLAttributes, SVGProps } from "react";
 import { JSX } from "react/jsx-runtime";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
 
 export const Route = createFileRoute("/_consumer/posts")({
   component: () => (
     <div>
-      <Posts></Posts>
       <Blured></Blured>
+      <Posts></Posts>
     </div>
   ),
 });
 
 function Posts() {
+  const posts = useQuery(api.posts.get);
+
   return (
     <div className="flex min-h-screen justify-center bg-background">
       <div className="grid w-full max-w-screen-lg grid-cols-1 gap-6 p-4">
-        <Card className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]">
-          {/* <Link to="#" className="absolute inset-0 z-10">
-            <span className="sr-only">View Signal</span>
-          </Link> */}
-          <CardContent className="space-y-4 p-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <CoinsIcon className="h-6 w-6 text-primary" />
-                <h3 className="text-lg font-medium">Bitcoin (BTC)</h3>
-              </div>
-              <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                <ArrowUpIcon className="h-4 w-4 text-green-500" />
-                <span>+5.2%</span>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text-sm text-muted-foreground">Entry Price</p>
-                <p className="text-lg font-medium">$48,500</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Exit Price</p>
-                <p className="text-lg font-medium">$51,200</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Stop-Loss</p>
-                <p className="text-lg font-medium">$47,800</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Profit</p>
-                <p className="text-lg font-medium">$2,700</p>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Bitcoin is showing strong bullish momentum, with a breakout above
-              the $50,000 resistance level. The current setup offers a favorable
-              risk-reward ratio.
-            </p>
-            <div className="aspect-[4/3] w-full">
-              <LineChart className="h-full w-full" />
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]">
-          {/* <Link to="#" className="absolute inset-0 z-10">
-            <span className="sr-only">View Signal</span>
-          </Link> */}
-          <CardContent className="space-y-4 p-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <CoinsIcon className="h-6 w-6 text-primary" />
-                <h3 className="text-lg font-medium">Ethereum (ETH)</h3>
-              </div>
-              <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                <ArrowUpIcon className="h-4 w-4 text-green-500" />
-                <span>+7.1%</span>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text-sm text-muted-foreground">Entry Price</p>
-                <p className="text-lg font-medium">$3,200</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Exit Price</p>
-                <p className="text-lg font-medium">$3,450</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Stop-Loss</p>
-                <p className="text-lg font-medium">$3,100</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Profit</p>
-                <p className="text-lg font-medium">$250</p>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Ethereum has broken out of a consolidation pattern and is showing
-              signs of a renewed uptrend. The current setup offers a favorable
-              risk-reward ratio.
-            </p>
-            <div className="aspect-[4/3] w-full">
-              <LineChart className="h-full w-full" />
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]">
-          <Link to="/" className="absolute inset-0 z-10">
-            <span className="sr-only">View Signal</span>
-          </Link>
-          <CardContent className="space-y-4 p-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <CoinsIcon className="h-6 w-6 text-primary" />
-                <h3 className="text-lg font-medium">Solana (SOL)</h3>
-              </div>
-              <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                <ArrowUpIcon className="h-4 w-4 text-green-500" />
-                <span>+9.3%</span>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text-sm text-muted-foreground">Entry Price</p>
-                <p className="text-lg font-medium">$120</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Exit Price</p>
-                <p className="text-lg font-medium">$132</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Stop-Loss</p>
-                <p className="text-lg font-medium">$115</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Profit</p>
-                <p className="text-lg font-medium">$12</p>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Solana is showing strong momentum, with a breakout above the $120
-              resistance level. The current setup offers a favorable risk-reward
-              ratio.
-            </p>
-            <div className="aspect-[4/3] w-full">
-              <TimeseriesChart className="h-full w-full" />
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]">
-          <Link to="/" className="absolute inset-0 z-10">
-            <span className="sr-only">View Signal</span>
-          </Link>
-          <CardContent className="space-y-4 p-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <CoinsIcon className="h-6 w-6 text-primary" />
-                <h3 className="text-lg font-medium">Cardano (ADA)</h3>
-              </div>
-              <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                <ArrowUpIcon className="h-4 w-4 text-green-500" />
-                <span>+4.8%</span>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text-sm text-muted-foreground">Entry Price</p>
-                <p className="text-lg font-medium">$1.20</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Exit Price</p>
-                <p className="text-lg font-medium">$1.26</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Stop-Loss</p>
-                <p className="text-lg font-medium">$1.15</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Profit</p>
-                <p className="text-lg font-medium">$0.06</p>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Cardano is showing signs of a breakout from a consolidation
-              pattern. The current setup offers a favorable risk-reward ratio.
-            </p>
-            <div className="aspect-[4/3] w-full">
-              <LineChart className="h-full w-full" />
-            </div>
-          </CardContent>
-        </Card>
+        {posts ? (
+          posts.map((post) => (
+            <Card
+              key={post._id}
+              className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]"
+            >
+              <CardContent className="space-y-4 p-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <CoinsIcon className="h-6 w-6 text-primary" />
+                    <h3 className="text-lg font-medium">{post.assetName}</h3>
+                  </div>
+                  <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                    <ArrowUpIcon className="h-4 w-4 text-green-500" />
+                    <span>
+                      +
+                      {(
+                        ((post.exitPrice - post.entryPrice) / post.entryPrice) *
+                        100
+                      ).toFixed(2)}
+                      %
+                    </span>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Entry Price</p>
+                    <p className="text-lg font-medium">${post.entryPrice}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Exit Price</p>
+                    <p className="text-lg font-medium">${post.exitPrice}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Stop-Loss</p>
+                    <p className="text-lg font-medium">${post.stopLossPrice}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Profit</p>
+                    <p className="text-lg font-medium">
+                      ${(post.exitPrice - post.entryPrice).toFixed(2)}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  {post.description}
+                </p>
+                <div className="aspect-[4/3] w-full">
+                  <LineChart className="h-full w-full" />
+                </div>
+              </CardContent>
+            </Card>
+          ))
+        ) : (
+          <div>Loading...</div>
+        )}
       </div>
     </div>
   );
@@ -216,23 +102,27 @@ function Blured() {
               Monthly Subscription
             </CardTitle>
             <CardDescription className="text-muted-foreground">
-              Get access to all our premium features for one low monthly price.
+              Get access to this content
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-6">
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-4xl font-bold">$19</div>
+                <div className="text-4xl font-bold">$10</div>
                 <div className="text-sm text-muted-foreground">per month</div>
               </div>
-              <Link
+              {/* <Link
+                href="https://buy.stripe.com/test_3cs2ah7W29VO25ieUV"
+                target="_blank"
+              > */}
+              <a
                 href="https://buy.stripe.com/test_3cs2ah7W29VO25ieUV"
                 target="_blank"
               >
                 <Button size="lg" className="w-full max-w-[150px]">
                   Subscribe
                 </Button>
-              </Link>
+              </a>
             </div>
             <div className="grid gap-2 text-sm text-muted-foreground">
               <div className="flex items-center justify-between">

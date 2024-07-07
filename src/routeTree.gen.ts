@@ -18,6 +18,7 @@ import { Route as CreatorImport } from './routes/_creator'
 import { Route as ConsumerImport } from './routes/_consumer'
 import { Route as AuthImport } from './routes/_auth'
 import { Route as IndexImport } from './routes/index'
+import { Route as CreatorMessagesImport } from './routes/_creator/messages'
 import { Route as CreatorCreatorpageImport } from './routes/_creator/creatorpage'
 import { Route as ConsumerSettingsImport } from './routes/_consumer/settings'
 import { Route as ConsumerPostsImport } from './routes/_consumer/posts'
@@ -59,6 +60,11 @@ const AuthRoute = AuthImport.update({
 const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
+} as any)
+
+const CreatorMessagesRoute = CreatorMessagesImport.update({
+  path: '/messages',
+  getParentRoute: () => CreatorRoute,
 } as any)
 
 const CreatorCreatorpageRoute = CreatorCreatorpageImport.update({
@@ -174,6 +180,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CreatorCreatorpageImport
       parentRoute: typeof CreatorImport
     }
+    '/_creator/messages': {
+      id: '/_creator/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof CreatorMessagesImport
+      parentRoute: typeof CreatorImport
+    }
   }
 }
 
@@ -187,7 +200,10 @@ export const routeTree = rootRoute.addChildren({
     ConsumerPostsRoute,
     ConsumerSettingsRoute,
   }),
-  CreatorRoute: CreatorRoute.addChildren({ CreatorCreatorpageRoute }),
+  CreatorRoute: CreatorRoute.addChildren({
+    CreatorCreatorpageRoute,
+    CreatorMessagesRoute,
+  }),
   CreatorsRoute,
   SignInRoute,
   SignUpRoute,
@@ -230,7 +246,8 @@ export const routeTree = rootRoute.addChildren({
     "/_creator": {
       "filePath": "_creator.tsx",
       "children": [
-        "/_creator/creatorpage"
+        "/_creator/creatorpage",
+        "/_creator/messages"
       ]
     },
     "/creators": {
@@ -260,6 +277,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_creator/creatorpage": {
       "filePath": "_creator/creatorpage.tsx",
+      "parent": "/_creator"
+    },
+    "/_creator/messages": {
+      "filePath": "_creator/messages.tsx",
       "parent": "/_creator"
     }
   }

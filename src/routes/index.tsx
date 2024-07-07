@@ -1,3 +1,5 @@
+import BlurIn from "@/components/magicui/blur-in";
+import TypingAnimation from "@/components/magicui/typing-animation";
 import { Button } from "@/components/ui/button";
 import {
   SignInButton,
@@ -28,9 +30,10 @@ function Welcome() {
   return (
     <div className="bg-background flex min-h-[100dvh] flex-col items-center justify-center">
       <div className="space-y-6 text-center">
-        <h1 className="animate-reveal text-foreground text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl">
-          Welcome to MoneyGlitch
-        </h1>
+        <BlurIn
+          word="Welcome to MoneyGlitch"
+          className="text-4xl font-bold text-black dark:text-white"
+        />
         <SignInButton>
           <Button>Sign In</Button>
         </SignInButton>
@@ -45,9 +48,10 @@ function Choose() {
       <div className="container mx-auto px-4 md:px-6 lg:max-w-2xl">
         <div className="grid gap-6">
           <div className="space-y-2 text-center">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Choose Your Path
-            </h1>
+            <TypingAnimation
+              className="text-4xl font-bold text-black dark:text-white"
+              text="Choose Your Path"
+            />
             <p className="text-muted-foreground md:text-xl">
               Are you a content creator or a consumer?
             </p>

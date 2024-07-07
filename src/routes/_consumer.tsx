@@ -3,6 +3,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { SVGProps } from "react";
 import { JSX } from "react/jsx-runtime";
+import { UserButton } from "@clerk/clerk-react";
 
 export const Route = createFileRoute("/_consumer")({
   component: () => (
@@ -75,6 +76,9 @@ function Navbar() {
         >
           Settings
         </Link>
+        <div className="px-5">
+          <UserButton></UserButton>
+        </div>
       </div>
     </header>
   );

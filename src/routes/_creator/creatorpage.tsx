@@ -119,7 +119,7 @@ function Dashboard() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/">Back to Homepage</Link>
+                  <Link to="/">Back to Homepage</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
             </BreadcrumbList>
@@ -316,7 +316,9 @@ function Dashboard() {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button>View All Messages</Button>
+                <Button>
+                  <Link to="/messages">View All Messages</Link>
+                </Button>
               </CardFooter>
             </Card>
             <Card x-chunk="dashboard-05-chunk-5">
