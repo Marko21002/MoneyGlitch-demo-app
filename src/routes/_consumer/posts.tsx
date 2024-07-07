@@ -6,7 +6,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { Link } from "@tanstack/react-router";
+// import { Link } from "@tanstack/react-router";
 import { ResponsiveLine } from "@nivo/line";
 import { Button } from "@/components/ui/button";
 import { ClassAttributes, HTMLAttributes, SVGProps } from "react";
