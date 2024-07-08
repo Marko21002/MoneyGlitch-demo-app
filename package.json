@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.2.5",
+    "@clerk/clerk-sdk-node": "^5.0.14",
     "@clerk/themes": "^2.1.10",
     "@nivo/line": "^0.87.0",
     "@radix-ui/react-avatar": "^1.1.0",
@@ -29,6 +30,7 @@
     "react-aria": "^3.33.1",
     "react-aria-components": "^1.2.1",
     "react-dom": "^18.3.1",
+    "svix": "^1.24.0",
     "tailwind-merge": "^2.3.0",
     "tailwind-variants": "^0.2.1",
     "tailwindcss-animate": "^1.0.7",

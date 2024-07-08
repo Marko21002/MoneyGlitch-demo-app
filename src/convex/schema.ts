@@ -9,4 +9,8 @@ export default defineSchema({
     stopLossPrice: v.number(),
     description: v.string(),
   }),
+  users: defineTable({
+    userId: v.string(),
+    email: v.string(),
+  }),
 });
