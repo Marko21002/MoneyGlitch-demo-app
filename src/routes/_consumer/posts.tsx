@@ -11,17 +11,23 @@ import { ResponsiveLine } from "@nivo/line";
 import { Button } from "@/components/ui/button";
 import { ClassAttributes, HTMLAttributes, SVGProps } from "react";
 import { JSX } from "react/jsx-runtime";
-import { useQuery } from "convex/react";
+import { useAction, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 
 export const Route = createFileRoute("/_consumer/posts")({
   component: () => (
     <div>
-      <Blured></Blured>
-      <Posts></Posts>
+      <Page></Page>
     </div>
   ),
 });
+
+function Page() {
+  const user = useQuery(api.users.getUser);
+  const isSubscribed = user && (user.endsOn ?? 0) > Date.now();
+
+  return <div>{isSubscribed ? <Posts /> : <Blured />}</div>;
+}
 
 function Posts() {
   const posts = useQuery(api.posts.get);
@@ -91,6 +97,12 @@ function Posts() {
 }
 
 function Blured() {
+  const pay = useAction(api.stripe.pay);
+
+  async function handleSubscribeClick() {
+    const url = await pay();
+    window.location.href = url;
+  }
   return (
     <div className="relative h-screen w-full">
       <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center blur-2xl filter" />
@@ -115,14 +127,14 @@ function Blured() {
                 href="https://buy.stripe.com/test_3cs2ah7W29VO25ieUV"
                 target="_blank"
               > */}
-              <a
-                href="https://buy.stripe.com/test_3cs2ah7W29VO25ieUV"
-                target="_blank"
+
+              <Button
+                onClick={handleSubscribeClick}
+                size="lg"
+                className="w-full max-w-[150px]"
               >
-                <Button size="lg" className="w-full max-w-[150px]">
-                  Subscribe
-                </Button>
-              </a>
+                Subscribe
+              </Button>
             </div>
             <div className="grid gap-2 text-sm text-muted-foreground">
               <div className="flex items-center justify-between">
