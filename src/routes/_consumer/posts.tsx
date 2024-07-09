@@ -26,6 +26,9 @@ function Page() {
   const user = useQuery(api.users.getUser);
   const isSubscribed = user && (user.endsOn ?? 0) > Date.now();
 
+  if (!user) {
+    return null;
+  }
   return <div>{isSubscribed ? <Posts /> : <Blured />}</div>;
 }
 
@@ -35,62 +38,67 @@ function Posts() {
   return (
     <div className="flex min-h-screen justify-center bg-background">
       <div className="grid w-full max-w-screen-lg grid-cols-1 gap-6 p-4">
-        {posts ? (
-          posts.map((post) => (
-            <Card
-              key={post._id}
-              className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]"
-            >
-              <CardContent className="space-y-4 p-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <CoinsIcon className="h-6 w-6 text-primary" />
-                    <h3 className="text-lg font-medium">{post.assetName}</h3>
+        {posts
+          ? posts.map((post) => (
+              <Card
+                key={post._id}
+                className="group relative mx-auto w-[95%] overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl md:w-[80%]"
+              >
+                <CardContent className="space-y-4 p-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <CoinsIcon className="h-6 w-6 text-primary" />
+                      <h3 className="text-lg font-medium">{post.assetName}</h3>
+                    </div>
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                      <ArrowUpIcon className="h-4 w-4 text-green-500" />
+                      <span>
+                        +
+                        {(
+                          ((post.exitPrice - post.entryPrice) /
+                            post.entryPrice) *
+                          100
+                        ).toFixed(2)}
+                        %
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                    <ArrowUpIcon className="h-4 w-4 text-green-500" />
-                    <span>
-                      +
-                      {(
-                        ((post.exitPrice - post.entryPrice) / post.entryPrice) *
-                        100
-                      ).toFixed(2)}
-                      %
-                    </span>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-sm text-muted-foreground">
+                        Entry Price
+                      </p>
+                      <p className="text-lg font-medium">${post.entryPrice}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">
+                        Exit Price
+                      </p>
+                      <p className="text-lg font-medium">${post.exitPrice}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Stop-Loss</p>
+                      <p className="text-lg font-medium">
+                        ${post.stopLossPrice}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Profit</p>
+                      <p className="text-lg font-medium">
+                        ${(post.exitPrice - post.entryPrice).toFixed(2)}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm text-muted-foreground">Entry Price</p>
-                    <p className="text-lg font-medium">${post.entryPrice}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {post.description}
+                  </p>
+                  <div className="aspect-[4/3] w-full">
+                    <LineChart className="h-full w-full" />
                   </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Exit Price</p>
-                    <p className="text-lg font-medium">${post.exitPrice}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Stop-Loss</p>
-                    <p className="text-lg font-medium">${post.stopLossPrice}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Profit</p>
-                    <p className="text-lg font-medium">
-                      ${(post.exitPrice - post.entryPrice).toFixed(2)}
-                    </p>
-                  </div>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  {post.description}
-                </p>
-                <div className="aspect-[4/3] w-full">
-                  <LineChart className="h-full w-full" />
-                </div>
-              </CardContent>
-            </Card>
-          ))
-        ) : (
-          <div>Loading...</div>
-        )}
+                </CardContent>
+              </Card>
+            ))
+          : null}
       </div>
     </div>
   );
