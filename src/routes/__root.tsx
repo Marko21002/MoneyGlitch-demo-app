@@ -1,6 +1,6 @@
 import { ClerkProvider, useAuth } from "@clerk/clerk-react";
 import { createRootRoute, Outlet, useNavigate } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+// import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { ConvexReactClient } from "convex/react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 
@@ -21,7 +21,7 @@ function Root() {
     >
       <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
         <Outlet />
-        <TanStackRouterDevtools position="top-right" initialIsOpen={false} />
+        {/* <TanStackRouterDevtools position="top-right" initialIsOpen={false} /> */}
       </ConvexProviderWithClerk>
     </ClerkProvider>
   );
